@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Drugs = () => {
     const [drugs, setDrugs] = useState([])
@@ -30,6 +31,11 @@ const Drugs = () => {
                     </div>
                 ))}
             </div>
+            <button>
+                <Link to="/add">
+                    Add New Drug
+                </Link>
+            </button>
         </div>
     )
 }
