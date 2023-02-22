@@ -10,6 +10,18 @@ const db = mysql.createConnection({
 
 const app = express()
 
+app.get("/", (req, res) => {
+    res.json("Hello this is the backend!")
+})
+
+app.get("/drugs", (req, res) => {
+    const q = "SELECT * FROM drugs"
+    db.query(q, (err, data) => {
+        if (err) return res.json(err)
+        return res.json(data)
+    })
+})
+
 app.listen(8880, () => {
     console.log("Connected to backend!")
 })
