@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+h1 {
+  margin-bottom: 50px;
+  text-decoration: none;
+}
+
 .drugs {
   display: flex;
   gap: 10px;
@@ -34,6 +39,7 @@ img {
   cursor: pointer;
   border: 1px solid rgb(245, 191, 191);
   color: rgb(242, 100, 100);
+  font-weight: bold;
 }
 
 .update {
@@ -43,5 +49,40 @@ img {
   cursor: pointer;
   border: 1px solid rgb(204, 204, 243);
   color: rgb(139, 139, 234);
+  font-weight: bold;
 }
 
+.add {
+  border: none;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: teal;
+  cursor: pointer;
+  border: 1px solid teal;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+textarea {
+  padding: 10px;
+}
+
+.formButton {
+  border: none;
+  padding: 10px;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

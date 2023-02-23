@@ -33,17 +33,21 @@ const Drugs = () => {
             <div className="drugs">
                 {drugs.map(drug => (
                     <div className='drug' key={drug.id}>
-                        {drug.cover && <img src={drug.cover} alt="" />}
+                        <img src={drug.cover} alt="" />
                         <h2>{drug.title}</h2>
                         <p>{drug.desc}</p>
-                        <span>{drug.price}</span>
+                        <span>{drug.price}₴</span>
                         <button className='delete' onClick={() => handleDelete(drug.id)}>Delete</button>
-                        <button className='update'>Update</button>
+                        <button className='update'>
+                            <Link to={`/update/${drug.id}`} style={{ textDecoration: 'none' }}>
+                                Update
+                            </Link>
+                        </button>
                     </div>
                 ))}
             </div>
-            <button>
-                <Link to="/add">
+            <button className='add'>
+                <Link to="/add" style={{ textDecoration: 'none', color: 'white' }}>
                     Add New Drug
                 </Link>
             </button>

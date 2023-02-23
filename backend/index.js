@@ -27,7 +27,7 @@ app.get("/drugs", (req, res) => {
 })
 
 app.post("/drugs", (req, res) => {
-    const q = "INSERT INTO drugs (`title`, `desc`, `price`, `cover`) VALUES (?)"
+    const q = "INSERT INTO drugs(`title`, `desc`, `price`, `cover`) VALUES (?)"
     const values = [req.body.title,
                     req.body.desc,
                     req.body.price,
@@ -46,6 +46,23 @@ app.delete("/drugs/:id", (req, res) => {
     db.query(q, [drugId], (err, data) => {
         if (err) return res.json(err)
         return res.json("Drug has been deleted successfully.")
+    })
+})
+
+app.put("/drugs/:id", (req, res) => {
+    const drugId = req.params.id
+    const q = "UPDATE drugs SET `title`= ?, `desc`= ?, `price`= ?, `cover`= ? WHERE id = ?"
+
+    const values = [
+        req.body.title,
+        req.body.desc,
+        req.body.price,
+        req.body.cover,
+    ]
+
+    db.query(q, [...values, drugId], (err, data) => {
+        if (err) return res.json(err)
+        return res.json("Drug has been updated successfully.")
     })
 })
 
