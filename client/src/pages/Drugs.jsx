@@ -28,6 +28,8 @@ const Drugs = () => {
                         <h2>{drug.title}</h2>
                         <p>{drug.desc}</p>
                         <span>{drug.price}</span>
+                        <button className='delete'>Delete</button>
+                        <button className='update'>Update</button>
                     </div>
                 ))}
             </div>
