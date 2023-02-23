@@ -39,6 +39,16 @@ app.post("/drugs", (req, res) => {
     })
 })
 
+app.delete("/drugs/:id", (req, res) => {
+    const drugId = req.params.id
+    const q = "DELETE FROM drugs WHERE id = ?"
+
+    db.query(q, [drugId], (err, data) => {
+        if (err) return res.json(err)
+        return res.json("Drug has been deleted successfully.")
+    })
+})
+
 app.listen(8800, () => {
     console.log("Connected to backend!")
 })
